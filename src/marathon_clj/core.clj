@@ -11,12 +11,12 @@
 (defn- json? [{:keys [headers]}]
   (string/starts-with? (:content-type headers) json-type))
 
-(defn- request [method client path & [{:keys [query-params body]}]]
+(defn- request [method client path & [body]]
   (let [options (if body
                   {:body (generate-string body)
                    :headers {"Content-Type" json-type}}
                   {})
-        resp @(method (str {:host client} path) options)]
+        resp @(method (str (:url client) path) options)]
     (if (and (ok? resp) (json? resp))
       (parse-string (:body resp) true)
       resp)))
@@ -44,7 +44,7 @@
 (defn create-app
   "Create and start a new app"
   [client app-id app]
-  (POST client "/v2/apps" {:body (merge {:id app-id} app)}))
+  (POST client "/v2/apps" (merge {:id app-id} app)))
 
 (defn get-apps
   "List all running apps"
