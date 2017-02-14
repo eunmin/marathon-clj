@@ -6,6 +6,8 @@ https://mesosphere.github.io/marathon/docs/rest-api.html
 
 ## Usage
 
+[![Leiningen version](http://clojars.org/marathon-clj/latest-version.svg)](http://clojars.org/marathon-clj)
+
 ```clojure
 (require 'marathon-clj.core)
 
