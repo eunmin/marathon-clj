@@ -11,7 +11,8 @@ https://mesosphere.github.io/marathon/docs/rest-api.html
 ```clojure
 (require 'marathon-clj.core)
 
-(def client {:host "http://localhost:8080"})
+(def client {:url "http://localhost:8080"
+             :basic-auth ["user" "password"]})
 
 (def app {:constraints [["hostname" "UNIQUE"]]
           :mem 50
