@@ -16,7 +16,7 @@
                   {:body (generate-string body)
                    :headers {"Content-Type" json-type}}
                   {})
-        resp @(method (str (:url client) path) options)]
+        resp @(method (str (:url client) path) (merge options (dissoc client :url)))]
     (if (and (ok? resp) (json? resp))
       (parse-string (:body resp) true)
       resp)))

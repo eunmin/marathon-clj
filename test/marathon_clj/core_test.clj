@@ -2,7 +2,8 @@
   (:require [clojure.test :refer :all]
             [marathon-clj.core :refer :all]))
 
-(def client {:url "http://localhost:8080"})
+(def client {:url "http://localhost:8080"
+             :basic-auth ["user" "password"]})
 
 (def sample-app-id "/my-app")
 
