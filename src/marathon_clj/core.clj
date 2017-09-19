@@ -69,7 +69,7 @@
 (defn update-app
   "Update or create an app with id app-id"
   [client app-id app & [{:keys [force] :as opts}]]
-  (PUT client (str "/v2/apps" app-id "?" (query-params opts)) app))
+  (PUT client (str "/v2/apps/" app-id "?" (query-params opts)) app))
 
 (defn restart-app
   "Rolling restart of all tasks of the given app-id"
@@ -202,7 +202,7 @@
   (GET client "/v2/leader"))
 
 (defn delete-leader
-  "Causes the current leader to abdicate, triggering a new election. 
+  "Causes the current leader to abdicate, triggering a new election.
    If no leader exists, Marathon will respond with a 404 error."
   [client]
   (DELETE client "/v2/leader"))
