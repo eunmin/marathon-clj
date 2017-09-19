@@ -1,4 +1,4 @@
-(defproject marathon-clj "0.1.2"
+(defproject marathon-clj "0.1.3-SNAPSHOT"
   :description "Clojure client library for Mesos Marathon"
   :url "https://github.com/eunmin/marathon-clj"
   :license {:name "Eclipse Public License"
